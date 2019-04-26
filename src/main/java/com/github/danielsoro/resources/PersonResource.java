@@ -7,8 +7,7 @@ import org.jnosql.artemis.ConfigurationUnit;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import java.util.Optional;
+import java.util.List;
 
 @Path("/person")
 @Produces(MediaType.APPLICATION_JSON)
@@ -19,13 +18,11 @@ public class PersonResource {
     @ConfigurationUnit(database = "people")
     private PersonRepository personRepository;
 
-    @GET
-    @Path("/{id}")
-    public Person listPerson(@PathParam("id") final String id) {
-        final Optional<Person> person = personRepository.findById(id);
-        return person.orElseThrow(() -> new WebApplicationException(Response.Status.NOT_FOUND));
-    }
 
+    @GET
+    public List<Person> listPerson() {
+        return personRepository.findAll();
+    }
 
     @POST
     public Person createPerson(Person person) {
