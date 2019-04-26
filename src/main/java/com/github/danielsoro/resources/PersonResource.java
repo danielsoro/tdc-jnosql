@@ -8,7 +8,6 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.List;
 import java.util.Optional;
 
 @Path("/person")
@@ -22,7 +21,7 @@ public class PersonResource {
 
     @GET
     @Path("/{id}")
-    public Person listPerson(@PathParam("id") final Long id) {
+    public Person listPerson(@PathParam("id") final String id) {
         final Optional<Person> person = personRepository.findById(id);
         return person.orElseThrow(() -> new WebApplicationException(Response.Status.NOT_FOUND));
     }
