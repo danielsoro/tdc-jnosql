@@ -8,7 +8,6 @@ import org.jnosql.artemis.Id;
 public class Person {
 
     @Id
-    @Column
     private Long id;
 
     @Column

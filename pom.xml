@@ -16,8 +16,8 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
 
         <javaee-api.version>8.0</javaee-api.version>
-        <tomee-maven-plugin.version>8.0.0-SNAPSHOT</tomee-maven-plugin.version>
-        <jnosql.version>0.0.7</jnosql.version>
+        <tomee-maven-plugin.version>8.0.0-M2</tomee-maven-plugin.version>
+        <jnosql.version>0.0.9-SNAPSHOT</jnosql.version>
     </properties>
 
     <dependencies>
@@ -60,4 +60,16 @@
             </plugin>
         </plugins>
     </build>
+    <repositories>
+        <repository>
+            <id>snapshots-repo</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>
